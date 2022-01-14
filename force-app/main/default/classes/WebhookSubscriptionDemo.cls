@@ -6,7 +6,7 @@
  * @last modified by  : Denzyl Evelyn
 **/
 @RestResource(urlMapping='/api/Webhooks/pushDetailsDemo/*')
-global with sharing class WebhookSubscriptionDemo {
+global class WebhookSubscriptionDemo {
     @HttpPost
     global static void handlenotification() {
 
@@ -24,16 +24,18 @@ global with sharing class WebhookSubscriptionDemo {
 
             JSONParser parser = JSON.createParser(request.requestBody.toString());
             while(parser.nextToken()!= null){
-            if (parser.getText()=='pusher'){
-                System.debug('YEAHBOI');
-            }
+                if (parser.getText()=='pusher'){
+                    System.debug('YEAHBOI');
+                    
+                }
 
-            else{
-                System.debug('Oh no');
+                else{
+                    System.debug('Oh no');
 
 
-            }
+                }
         }
+        response.statusCode=200;
         } catch(Exception e){
 
             //please work
