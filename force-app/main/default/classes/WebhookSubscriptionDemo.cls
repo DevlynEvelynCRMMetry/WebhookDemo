@@ -36,12 +36,23 @@ global class WebhookSubscriptionDemo {
                 }
         }
         response.statusCode=200;
+        response.responseBody = Blob.valueOf(JSON.serialize(new SFDCResponse('success','Processed Successfully')));
         } catch(Exception e){
 
             //please work
         
 
             System.debug('Exception Happened:'+e.getMessage());
+        }
+
+    }
+
+    public class SFDCResponse{
+        string response;
+        string message;
+        public SFDCResponse(string resp, String msg){
+            response =resp;
+            message= msg;
         }
 
     }
