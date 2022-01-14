@@ -36,7 +36,7 @@ global with sharing class WebhookSubscriptionDemo {
         }
         } catch(Exception e){
 
-            //work.s work
+            //please work
         
 
             System.debug('Exception Happened:'+e.getMessage());
