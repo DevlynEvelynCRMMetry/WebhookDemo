@@ -17,7 +17,7 @@ global with sharing class WebhookSubscriptionDemo {
 
         } catch(Exception e){
 
-            //thisgitd.
+            //work.
 
 
             System.debug('Exception Happened:'+e.getMessage());
