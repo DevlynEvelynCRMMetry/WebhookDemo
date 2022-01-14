@@ -16,13 +16,14 @@ global with sharing class WebhookSubscriptionDemo {
             RestResponse response = RestContext.response;
             //fetch the body of the request
             //get Hashvalue
-            String hashvalue = request.headers.get('gotta get this');
+            String hashvalue = request.headers.get('X-Hub-Signature-256');
             //debug the Hashvalue
             System.debug('hashvalue: '+hashvalue);
             Blob bB = request.requestBody;
             System.debug(bB.toString());
 
             JSONParser parser = JSON.createParser(request.requestBody.toString());
+            while(parser.nextToken()!= null){
             if (parser.getText()=='pusher'){
                 System.debug('YEAHBOI');
             }
@@ -32,10 +33,11 @@ global with sharing class WebhookSubscriptionDemo {
 
 
             }
+        }
         } catch(Exception e){
 
             //work.s work
-
+        
 
             System.debug('Exception Happened:'+e.getMessage());
         }
