@@ -14,10 +14,27 @@ global with sharing class WebhookSubscriptionDemo {
 
             RestRequest request = RestContext.request;
             RestResponse response = RestContext.response;
+            //fetch the body of the request
+            //get Hashvalue
+            String hashvalue = request.headers.get('gotta get this');
+            //debug the Hashvalue
+            System.debug('hashvalue: '+hashvalue);
+            Blob bB = request.requestBody;
+            System.debug(bB.toString());
 
+            JSONParser parser = JSON.createParser(request.requestBody.toString());
+            if (parser.getText()=='pusher'){
+                System.debug('YEAHBOI');
+            }
+
+            else{
+                System.debug('Oh no');
+
+
+            }
         } catch(Exception e){
 
-            //work.s
+            //work.s work
 
 
             System.debug('Exception Happened:'+e.getMessage());
