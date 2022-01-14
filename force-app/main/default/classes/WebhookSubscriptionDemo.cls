@@ -11,13 +11,13 @@ global with sharing class WebhookSubscriptionDemo {
     global static void handlenotification() {
 
         try{
-            
+
             RestRequest request = RestContext.request;
             RestResponse response = RestContext.response;
 
         } catch(Exception e){
 
-            //thisgitd
+            //thisgitd.
 
 
             System.debug('Exception Happened:'+e.getMessage());
